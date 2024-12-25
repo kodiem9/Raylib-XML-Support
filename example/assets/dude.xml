@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="dude.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="dudeDEATH0000" x="0" y="0" width="126" height="140" frameX="0" frameY="-20" pivotX="0" pivotY="20.95" frameWidth="190" frameHeight="160"/>
+	<SubTexture name="dudeDEATH0001" x="126" y="0" width="122" height="136" frameX="-7" frameY="-19" frameWidth="190" frameHeight="160"/>
+	<SubTexture name="dudeDEATH0002" x="248" y="0" width="119" height="131" frameX="-14" frameY="-18" frameWidth="190" frameHeight="160"/>
+	<SubTexture name="dudeDEATH0003" x="367" y="0" width="114" height="128" frameX="-22" frameY="-16" frameWidth="190" frameHeight="160"/>
+	<SubTexture name="dudeDEATH0004" x="481" y="0" width="111" height="123" frameX="-29" frameY="-15" frameWidth="190" frameHeight="160"/>
+	<SubTexture name="dudeDEATH0005" x="592" y="0" width="107" height="120" frameX="-36" frameY="-13" frameWidth="190" frameHeight="160"/>
+	<SubTexture name="dudeDEATH0006" x="699" y="0" width="104" height="115" frameX="-44" frameY="-12" frameWidth="190" frameHeight="160"/>
+	<SubTexture name="dudeDEATH0007" x="803" y="0" width="102" height="111" frameX="-51" frameY="-10" frameWidth="190" frameHeight="160"/>
+	<SubTexture name="dudeDEATH0008" x="905" y="0" width="100" height="107" frameX="-58" frameY="-9" frameWidth="190" frameHeight="160"/>
+	<SubTexture name="dudeDEATH0009" x="0" y="140" width="97" height="104" frameX="-66" frameY="-7" frameWidth="190" frameHeight="160"/>
+	<SubTexture name="dudeDEATH0010" x="97" y="140" width="95" height="101" frameX="-73" frameY="-6" frameWidth="190" frameHeight="160"/>
+	<SubTexture name="dudeDEATH0011" x="192" y="140" width="94" height="99" frameX="-80" frameY="-4" frameWidth="190" frameHeight="160"/>
+	<SubTexture name="dudeDEATH0012" x="286" y="140" width="91" height="96" frameX="-88" frameY="-3" frameWidth="190" frameHeight="160"/>
+	<SubTexture name="dudeDEATH0013" x="377" y="140" width="90" height="94" frameX="-95" frameY="-1" frameWidth="190" frameHeight="160"/>
+	<SubTexture name="dudeDEATH0014" x="467" y="140" width="88" height="91" frameX="-102" frameY="0" frameWidth="190" frameHeight="160"/>
+	<SubTexture name="dudeIDLE0000" x="555" y="140" width="133" height="126" frameX="0" frameY="-15" pivotX="6.25" pivotY="0.1" frameX="0" frameY="-15" frameWidth="133" frameHeight="141"/>
+	<SubTexture name="dudeIDLE0001" x="688" y="140" width="129" height="131" frameX="-2" frameY="-10" frameWidth="133" frameHeight="141"/>
+	<SubTexture name="dudeIDLE0002" x="817" y="140" width="125" height="134" frameX="-4" frameY="-7" frameWidth="133" frameHeight="141"/>
+	<SubTexture name="dudeIDLE0003" x="0" y="274" width="124" height="137" frameX="-5" frameY="-4" frameWidth="133" frameHeight="141"/>
+	<SubTexture name="dudeIDLE0004" x="124" y="274" width="123" height="139" frameX="-5" frameY="-2" frameWidth="133" frameHeight="141"/>
+	<SubTexture name="dudeIDLE0005" x="247" y="274" width="121" height="140" frameX="-6" frameY="-1" frameWidth="133" frameHeight="141"/>
+	<SubTexture name="dudeIDLE0006" x="368" y="274" width="121" height="141" frameX="-6" frameY="0" frameWidth="133" frameHeight="141"/>
+	<SubTexture name="dudeIDLE0007" x="489" y="274" width="121" height="141" frameX="-6" frameY="0" frameWidth="133" frameHeight="141"/>
+	<SubTexture name="dudeIDLE0008" x="610" y="274" width="121" height="141" frameX="-6" frameY="0" frameWidth="133" frameHeight="141"/>
+	<SubTexture name="dudeIDLE0009" x="731" y="274" width="121" height="141" frameX="-6" frameY="0" frameWidth="133" frameHeight="141"/>
+	<SubTexture name="dudeIDLE0010" x="852" y="274" width="121" height="141" frameX="-6" frameY="0" frameWidth="133" frameHeight="141"/>
+	<SubTexture name="dudeIDLE0011" x="0" y="415" width="121" height="141" frameX="-6" frameY="0" frameWidth="133" frameHeight="141"/>
+	<SubTexture name="dudeIDLE0012" x="0" y="415" width="121" height="141" frameX="-6" frameY="0" frameWidth="133" frameHeight="141"/>
+	<SubTexture name="dudeIDLE0013" x="0" y="415" width="121" height="141" frameX="-6" frameY="0" frameWidth="133" frameHeight="141"/>
+	<SubTexture name="dudeIDLE0014" x="121" y="415" width="121" height="141" frameX="-6" frameY="0" frameWidth="133" frameHeight="141"/>
+	<SubTexture name="dudeIDLE0015" x="121" y="415" width="121" height="141" frameX="-6" frameY="0" frameWidth="133" frameHeight="141"/>
+	<SubTexture name="dudeIDLE0016" x="121" y="415" width="121" height="141" frameX="-6" frameY="0" frameWidth="133" frameHeight="141"/>
+	<SubTexture name="dudeIDLE0017" x="121" y="415" width="121" height="141" frameX="-6" frameY="0" frameWidth="133" frameHeight="141"/>
+	<SubTexture name="dudeIDLE0018" x="121" y="415" width="121" height="141" frameX="-6" frameY="0" frameWidth="133" frameHeight="141"/>
+	<SubTexture name="dudeIDLE0019" x="121" y="415" width="121" height="141" frameX="-6" frameY="0" frameWidth="133" frameHeight="141"/>
+	<SubTexture name="dudeIDLE0020" x="121" y="415" width="121" height="141" frameX="-6" frameY="0" frameWidth="133" frameHeight="141"/>
+	<SubTexture name="dudeIDLE0021" x="121" y="415" width="121" height="141" frameX="-6" frameY="0" frameWidth="133" frameHeight="141"/>
+	<SubTexture name="dudeIDLE0022" x="121" y="415" width="121" height="141" frameX="-6" frameY="0" frameWidth="133" frameHeight="141"/>
+	<SubTexture name="dudeIDLE0023" x="121" y="415" width="121" height="141" frameX="-6" frameY="0" frameWidth="133" frameHeight="141"/>
+	<SubTexture name="dudeWALK0000" x="242" y="415" width="115" height="142" frameX="-8" frameY="0" pivotX="6.4" pivotY="8.1" frameWidth="132" frameHeight="147"/>
+	<SubTexture name="dudeWALK0001" x="357" y="415" width="115" height="142" frameX="-8" frameY="0" frameWidth="132" frameHeight="147"/>
+	<SubTexture name="dudeWALK0002" x="472" y="415" width="115" height="141" frameX="-8" frameY="-1" frameWidth="132" frameHeight="147"/>
+	<SubTexture name="dudeWALK0003" x="587" y="415" width="116" height="142" frameX="-7" frameY="-1" frameWidth="132" frameHeight="147"/>
+	<SubTexture name="dudeWALK0004" x="703" y="415" width="119" height="140" frameX="-6" frameY="-4" frameWidth="132" frameHeight="147"/>
+	<SubTexture name="dudeWALK0005" x="822" y="415" width="124" height="136" frameX="-4" frameY="-11" frameWidth="132" frameHeight="147"/>
+	<SubTexture name="dudeWALK0006" x="0" y="557" width="130" height="134" frameX="-1" frameY="-13" frameWidth="132" frameHeight="147"/>
+	<SubTexture name="dudeWALK0007" x="130" y="557" width="132" height="133" frameX="0" frameY="-14" frameWidth="132" frameHeight="147"/>
+	<SubTexture name="dudeWALK0008" x="262" y="557" width="132" height="133" frameX="0" frameY="-14" frameWidth="132" frameHeight="147"/>
+	<SubTexture name="dudeWALK0009" x="394" y="557" width="132" height="133" frameX="0" frameY="-14" frameWidth="132" frameHeight="147"/>
+	<SubTexture name="dudeWALK0010" x="394" y="557" width="132" height="133" frameX="0" frameY="-14" frameWidth="132" frameHeight="147"/>
+	<SubTexture name="dudeWALK0011" x="526" y="557" width="132" height="133" frameX="0" frameY="-14" frameWidth="132" frameHeight="147"/>
+	<SubTexture name="dudeWALK0012" x="658" y="557" width="132" height="133" frameX="0" frameY="-14" frameWidth="132" frameHeight="147"/>
+	<SubTexture name="dudeWALK0013" x="790" y="557" width="132" height="133" frameX="0" frameY="-14" frameWidth="132" frameHeight="147"/>
+	<SubTexture name="dudeWALK0014" x="0" y="691" width="130" height="134" frameX="-1" frameY="-13" frameWidth="132" frameHeight="147"/>
+	<SubTexture name="dudeWALK0015" x="130" y="691" width="124" height="138" frameX="-4" frameY="-9" frameWidth="132" frameHeight="147"/>
+	<SubTexture name="dudeWALK0016" x="254" y="691" width="117" height="140" frameX="-7" frameY="-3" frameWidth="132" frameHeight="147"/>
+	<SubTexture name="dudeWALK0017" x="371" y="691" width="115" height="141" frameX="-8" frameY="-1" frameWidth="132" frameHeight="147"/>
+	<SubTexture name="dudeWALK0018" x="357" y="415" width="115" height="142" frameX="-8" frameY="0" frameWidth="132" frameHeight="147"/>
+	<SubTexture name="dudeWALK0019" x="242" y="415" width="115" height="142" frameX="-8" frameY="0" frameWidth="132" frameHeight="147"/>
+</TextureAtlas>

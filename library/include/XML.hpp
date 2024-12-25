@@ -30,7 +30,7 @@ struct TextureXML {
     int frame;
 
     void UpdateTexture();                                           // Updates the texture "source"
-    void UpdatePosition(Vector2 &position);     // Updates the texture "dest"
+    void UpdatePosition(Vector2 &position);                         // Updates the texture "dest"
     void UpdateOrigin(Vector2 vector);                              // Updates the texture "origin"
 };
 

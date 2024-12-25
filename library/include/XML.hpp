@@ -37,11 +37,11 @@ struct TextureXML {
 /*          PRIVATE METHODS           */
 
 namespace XMLPrivateMethods {
-    std::string SeperateStringWith(std::string string, const char seperator, const bool first);
-    int ExtractNumberFromString(const std::string string);
-    std::string RemoveDigitsFromString(const std::string string);
+    std::string SeperateStringWith(const std::string &string, const char &seperator, const bool &first);
+    int ExtractNumberFromString(const std::string &string);
+    std::string RemoveDigitsFromString(const std::string &string);
 }
 
 /*          FUNCTIONS           */
 
-void LoadXML(const std::string name, const std::string path, TextureXML &texture);
+void LoadXML(const std::string &name, const std::string &path, TextureXML &texture);

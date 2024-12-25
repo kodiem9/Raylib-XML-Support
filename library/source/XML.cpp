@@ -17,7 +17,7 @@ void TextureXML::UpdateOrigin(Vector2 vector) {
 
 /*          PRIVATE METHODS           */
 
-std::string XMLPrivateMethods::SeperateStringWith(std::string string, const char seperator, const bool first) {
+std::string XMLPrivateMethods::SeperateStringWith(const std::string &string, const char &seperator, const bool &first) {
     std::string newString{};
     bool startSavingString = first;
 
@@ -39,7 +39,7 @@ std::string XMLPrivateMethods::SeperateStringWith(std::string string, const char
     return newString;
 }
 
-int XMLPrivateMethods::ExtractNumberFromString(const std::string string) {
+int XMLPrivateMethods::ExtractNumberFromString(const std::string &string) {
     std::string newString;
     int number;
 
@@ -53,7 +53,7 @@ int XMLPrivateMethods::ExtractNumberFromString(const std::string string) {
     return number;
 }
 
-std::string XMLPrivateMethods::RemoveDigitsFromString(const std::string string) {
+std::string XMLPrivateMethods::RemoveDigitsFromString(const std::string &string) {
     std::string newString;
 
     for(char ch: string) {
@@ -67,7 +67,7 @@ std::string XMLPrivateMethods::RemoveDigitsFromString(const std::string string) 
 
 /*          FUNCTIONS           */
 
-void LoadXML(const std::string name, const std::string path, TextureXML &texture) {
+void LoadXML(const std::string &name, const std::string &path, TextureXML &texture) {
     std::ifstream file(path + name);
     std::string mainString;
     std::string tempString;

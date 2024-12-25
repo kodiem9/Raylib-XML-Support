@@ -41,6 +41,10 @@ include_directories("${LIBRARY_PATH}")
 include_directories("${PCH_PATH}")
 file(GLOB_RECURSE SOURCE_FILES "${SOURCE_PATH}/*.cpp")
 
+add_library(libraryxml STATIC library/source/XML.cpp)
+target_include_directories(libraryxml PUBLIC "${CMAKE_SOURCE_DIR}/library/include")
+target_compile_options(libraryxml PRIVATE -Wall -Wextra)
+
 add_executable(game "${SOURCE_FILES}" library/source/XML.cpp)
 
 message(STATUS "Detected operating system: ${CMAKE_SYSTEM_NAME}")

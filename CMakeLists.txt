@@ -25,7 +25,14 @@ else()
     set(USE_PCH ON)
 endif()
 
-set(LIBRARY_PATH "C:/raylib")
+if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
+    set(LIBRARY_PATH "C:/raylib")
+elseif(CMAKE_SYSTEM_NAME STREQUAL "Darwin") # macOS
+    set(LIBRARY_PATH "$ENV{RAYLIB_PATH}")
+else()
+    message(FATAL_ERROR "Add your raylib path: ${CMAKE_SYSTEM_NAME}")
+endif()
+
 set(PCH_PATH "${CMAKE_SOURCE_DIR}/example/common")
 set(PCH_HEADER "${PCH_PATH}/PCH.hpp")
 set(SOURCE_PATH "${CMAKE_SOURCE_DIR}/example")
@@ -34,7 +41,7 @@ include_directories("${LIBRARY_PATH}")
 include_directories("${PCH_PATH}")
 file(GLOB_RECURSE SOURCE_FILES "${SOURCE_PATH}/*.cpp")
 
-add_executable(game "${SOURCE_FILES}" source/XML.cpp)
+add_executable(game "${SOURCE_FILES}" library/source/XML.cpp)
 
 message(STATUS "Detected operating system: ${CMAKE_SYSTEM_NAME}")
 message(STATUS "Current build type: ${CMAKE_BUILD_TYPE}")
@@ -43,7 +50,7 @@ set(CMAKE_CXX_FLAGS_DEBUG "")
 # funroll-loops can increase binary size!
 set(CMAKE_CXX_FLAGS_RELEASE "-O2 -march=native -flto -fomit-frame-pointer -funroll-loops")
 
-target_include_directories(game PRIVATE "${CMAKE_SOURCE_DIR}/include")
+target_include_directories(game PRIVATE "${CMAKE_SOURCE_DIR}/library/include")
 target_compile_options(game PRIVATE -Wall -Wextra)
 
 if (USE_PCH)

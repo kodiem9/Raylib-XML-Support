@@ -7,11 +7,11 @@ void TextureXML::UpdateTexture() {
     texture.source = Rectangle{ anim.position.x, anim.position.y, anim.position.width, anim.position.height };
 }
 
-void TextureXML::UpdatePosition(Vector2 &position) {
+void TextureXML::UpdatePosition(const Vector2 &position) {
     texture.dest = Rectangle{ position.x + animation.data[state][frame].offset.x, position.y + animation.data[state][frame].offset.y, texture.source.width, texture.source.height };
 }
 
-void TextureXML::UpdateOrigin(Vector2 vector) {
+void TextureXML::UpdateOrigin(const Vector2 &vector) {
     texture.origin = vector;
 }
 
@@ -67,7 +67,7 @@ std::string XMLPrivateMethods::RemoveDigitsFromString(const std::string &string)
 
 /*          FUNCTIONS           */
 
-void LoadXML(const std::string &name, const std::string &path, TextureXML &texture) {
+void LoadXML(const std::string &path, const std::string &name, TextureXML &texture) {
     std::ifstream file(path + name);
     std::string mainString;
     std::string tempString;

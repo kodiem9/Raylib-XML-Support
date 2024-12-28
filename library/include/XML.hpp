@@ -4,6 +4,7 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
+#include <stdint.h>
 
 /*          STRUCTS           */
 
@@ -24,14 +25,15 @@ struct AnimationXML {
 };
 
 struct TextureXML {
+    // Even though it is named TextureXML, it does not contain a texture! You have to seperately have a Texture2D!
     AnimationXML animation;
     FullTexture texture;
     std::string state;
-    int frame;
+    uint16_t frame;
 
-    void UpdateTexture();                                           // Updates the texture "source"
-    void UpdatePosition(Vector2 &position);                         // Updates the texture "dest"
-    void UpdateOrigin(Vector2 vector);                              // Updates the texture "origin"
+    void UpdateTexture();                                                 // Updates the texture "source"
+    void UpdatePosition(const Vector2 &position);                         // Updates the texture "dest"
+    void UpdateOrigin(const Vector2 &vector);                             // Updates the texture "origin"
 };
 
 /*          PRIVATE METHODS           */
@@ -44,4 +46,4 @@ namespace XMLPrivateMethods {
 
 /*          FUNCTIONS           */
 
-void LoadXML(const std::string &name, const std::string &path, TextureXML &texture);
+void LoadXML(const std::string &path, const std::string &name, TextureXML &texture);

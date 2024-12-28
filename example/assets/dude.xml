@@ -17,7 +17,7 @@
 	<SubTexture name="dudeDEATH0012" x="286" y="140" width="91" height="96" frameX="-88" frameY="-3" frameWidth="190" frameHeight="160"/>
 	<SubTexture name="dudeDEATH0013" x="377" y="140" width="90" height="94" frameX="-95" frameY="-1" frameWidth="190" frameHeight="160"/>
 	<SubTexture name="dudeDEATH0014" x="467" y="140" width="88" height="91" frameX="-102" frameY="0" frameWidth="190" frameHeight="160"/>
-	<SubTexture name="dudeIDLE0000" x="555" y="140" width="133" height="126" frameX="0" frameY="-15" pivotX="6.25" pivotY="0.1" frameX="0" frameY="-15" frameWidth="133" frameHeight="141"/>
+	<SubTexture name="dudeIDLE0000" x="555" y="140" width="133" height="126" frameX="0" frameY="-15" pivotX="6.25" pivotY="0.1" frameWidth="133" frameHeight="141"/>
 	<SubTexture name="dudeIDLE0001" x="688" y="140" width="129" height="131" frameX="-2" frameY="-10" frameWidth="133" frameHeight="141"/>
 	<SubTexture name="dudeIDLE0002" x="817" y="140" width="125" height="134" frameX="-4" frameY="-7" frameWidth="133" frameHeight="141"/>
 	<SubTexture name="dudeIDLE0003" x="0" y="274" width="124" height="137" frameX="-5" frameY="-4" frameWidth="133" frameHeight="141"/>

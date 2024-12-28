@@ -5,6 +5,7 @@
 #include <unordered_map>
 #include <vector>
 #include <stdint.h>
+#include <pugixml.hpp>
 
 /*          STRUCTS           */
 
@@ -14,19 +15,18 @@ struct FullTexture {
     Vector2 origin;
 };
 
-struct AnimationData {
-    Rectangle position;
-    Vector2 offset;
-};
-
-struct AnimationXML {
-    // [AnimationName][Frame] to get the frames offsets and positions (AnimationData)
-    std::unordered_map<std::string, std::vector<AnimationData>> data;
+struct FrameXML {
+    float x;
+    float y;
+    float width;
+    float height;
+    int16_t frameX;
+    int16_t frameY;
 };
 
 struct TextureXML {
     // Even though it is named TextureXML, it does not contain a texture! You have to seperately have a Texture2D!
-    AnimationXML animation;
+    std::unordered_map<std::string, std::vector<FrameXML>> animation;
     FullTexture texture;
     std::string state;
     uint16_t frame;
@@ -35,14 +35,6 @@ struct TextureXML {
     void UpdatePosition(const Vector2 &position);                         // Updates the texture "dest"
     void UpdateOrigin(const Vector2 &vector);                             // Updates the texture "origin"
 };
-
-/*          PRIVATE METHODS           */
-
-namespace XMLPrivateMethods {
-    std::string SeperateStringWith(const std::string &string, const char &seperator, const bool &first);
-    int ExtractNumberFromString(const std::string &string);
-    std::string RemoveDigitsFromString(const std::string &string);
-}
 
 /*          FUNCTIONS           */
 

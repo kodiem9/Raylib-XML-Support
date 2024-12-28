@@ -33,6 +33,8 @@ else()
     message(FATAL_ERROR "Add your raylib path: ${CMAKE_SYSTEM_NAME}")
 endif()
 
+set(THIRDPARTY_PATH "${CMAKE_SOURCE_DIR}/thirdparty")
+set(XML_LIBRARY_PATH "${CMAKE_SOURCE_DIR}/library")
 set(PCH_PATH "${CMAKE_SOURCE_DIR}/example/common")
 set(PCH_HEADER "${PCH_PATH}/PCH.hpp")
 set(SOURCE_PATH "${CMAKE_SOURCE_DIR}/example")
@@ -42,7 +44,7 @@ include_directories("${PCH_PATH}")
 file(GLOB_RECURSE SOURCE_FILES "${SOURCE_PATH}/*.cpp")
 
 add_library(raryxml STATIC library/source/XML.cpp)
-target_include_directories(raryxml PUBLIC "${CMAKE_SOURCE_DIR}/library/include")
+target_include_directories(raryxml PUBLIC "${XML_LIBRARY_PATH}/include")
 target_compile_options(raryxml PRIVATE -Wall -Wextra)
 
 add_executable(game "${SOURCE_FILES}" library/source/XML.cpp)
@@ -54,7 +56,12 @@ set(CMAKE_CXX_FLAGS_DEBUG "")
 # funroll-loops can increase binary size!
 set(CMAKE_CXX_FLAGS_RELEASE "-O2 -march=native -flto -fomit-frame-pointer -funroll-loops")
 
-target_include_directories(game PRIVATE "${CMAKE_SOURCE_DIR}/library/include")
+# For the XML library
+target_include_directories(game PRIVATE "${XML_LIBRARY_PATH}/include")
+target_link_libraries(game PRIVATE "${THIRDPARTY_PATH}/library/libpugixml.a")
+
+# For thirdparty libraries
+target_include_directories(game PRIVATE "${THIRDPARTY_PATH}/include")
 target_compile_options(game PRIVATE -Wall -Wextra)
 
 if (USE_PCH)

@@ -38,3 +38,41 @@ fix:
 cloc:
 	cloc ../library
 ```
+
+# VSCode
+These json files might be useful to make the project structure more clean. Also "fixes" include errors
+
+settings.json
+```json
+{
+    "files.exclude": {
+        ".gitignore": true,
+        "LICENSE": true,
+        "*.md": false,
+        "**/.cache": false,
+        "**/.vscode": false,
+        "**/build": false,
+    }
+}
+```
+
+c_cpp_properties.json
+```json
+{
+    "configurations": [
+        {
+            "name": "Windows",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "C:/raylib",
+                "${workspaceFolder}/library/include",
+                "${workspaceFolder}/example/common",
+                "${workspaceFolder}/thirdparty/include"
+            ],
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}
+```

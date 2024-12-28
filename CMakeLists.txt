@@ -45,7 +45,7 @@ file(GLOB_RECURSE SOURCE_FILES "${SOURCE_PATH}/*.cpp")
 
 add_library(raryxml STATIC library/source/XML.cpp)
 target_include_directories(raryxml PUBLIC "${XML_LIBRARY_PATH}/include")
-target_compile_options(raryxml PRIVATE -Wall -Wextra)
+target_compile_options(raryxml PRIVATE -Werror -Wextra)
 
 add_executable(game "${SOURCE_FILES}" library/source/XML.cpp)
 
@@ -62,7 +62,7 @@ target_link_libraries(game PRIVATE "${THIRDPARTY_PATH}/library/libpugixml.a")
 
 # For thirdparty libraries
 target_include_directories(game PRIVATE "${THIRDPARTY_PATH}/include")
-target_compile_options(game PRIVATE -Wall -Wextra)
+target_compile_options(game PRIVATE -Werror -Wextra)
 
 if (USE_PCH)
     target_precompile_headers(game PRIVATE "${PCH_HEADER}")

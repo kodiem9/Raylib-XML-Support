@@ -2,14 +2,59 @@
 
 /*          STRUCTS           */
 
+TextureXML::TextureXML() 
+    : updateFrame(false), tick(0.0f) {
+    SetFPS(30);
+}
+
+void TextureXML::PlayAnimation(const float &deltaTime) {
+    tick += deltaTime;
+
+    while(tick >= delay) {
+        if(updateFrame) {
+            properties.frame = properties.reverse ? lastFrame + 1 : -1;
+            updateFrame = false;
+        }
+
+        tick -= delay;
+
+        if(properties.reverse) {
+            if(properties.frame == 0) {
+                updateFrame = true;
+                tick -= properties.endDelay * deltaTime;
+            }
+            else {
+                properties.frame--;
+            }
+        }
+        else {
+            properties.frame++;
+            if(properties.frame == lastFrame) {
+                updateFrame = true;
+                tick -= properties.endDelay * deltaTime;
+            }
+        }
+    }
+}
+
+void TextureXML::SetFPS(const uint16_t &fps) {
+    this->fps = fps;
+    delay = 1.0f / static_cast<float>(fps);
+}
+
+void TextureXML::SetState(const std::string &state) {
+    this->state = state;
+    lastFrame = animation[state].size() - 1;
+}
+
 void TextureXML::UpdateTexture() {
-    auto &anim = animation[properties.state][properties.frame];
+    auto &anim = animation[state][properties.frame];
     texture.source = Rectangle{ anim.x, anim.y, anim.width, anim.height };
 }
 
 void TextureXML::UpdatePosition(const Vector2 &position) {
-    texture.dest = Rectangle{ position.x - animation[properties.state][properties.frame].frameX,
-        position.y - animation[properties.state][properties.frame].frameY, texture.source.width, texture.source.height };
+    texture.dest = Rectangle{ position.x - animation[state][properties.frame].frameX,
+        position.y - animation[state][properties.frame].frameY, texture.source.width, texture.source.height };
 }
 
 void TextureXML::UpdateOrigin(const Vector2 &vector) {

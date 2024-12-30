@@ -10,8 +10,11 @@ Player::Player() {
     m_playerTexture = LoadTexture("../example/assets/dude.png");
 
     LoadXML("../example/assets/dude.xml", m_playerAnimation);
-    m_playerAnimation.properties.state = "dudeIDLE";
+    m_playerAnimation.SetState("dudeIDLE");
     m_playerAnimation.properties.frame = 0;
+    m_playerAnimation.properties.reverse = false;
+    m_playerAnimation.properties.endDelay = 0.0f;
+    m_playerAnimation.SetFPS(24);
     m_playerAnimation.UpdateTexture();
     m_playerAnimation.UpdatePosition(m_playerPosition);
     m_playerAnimation.UpdateOrigin(Vector2{m_playerAnimation.texture.dest.width / 2, m_playerAnimation.texture.dest.height / 2});
@@ -33,10 +36,6 @@ void Player::Update(const float &deltaTime) {
     if(IsKeyDown(KEY_W)) m_playerPosition.y -= 300.0f * deltaTime;
     if(IsKeyDown(KEY_S)) m_playerPosition.y += 300.0f * deltaTime;
     m_playerAnimation.UpdatePosition(m_playerPosition);
-
-    m_playerAnimation.properties.frame++;
-    if(m_playerAnimation.properties.frame > 23) {
-        m_playerAnimation.properties.frame = 0;
-    }
+    m_playerAnimation.PlayAnimation(deltaTime);
     m_playerAnimation.UpdateTexture();
 }

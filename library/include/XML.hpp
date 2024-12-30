@@ -26,12 +26,8 @@ struct FrameXML {
 };
 
 struct PropertiesXML {
-    std::string state;      // Animation name that will play (ex. "IDLE")
-    float beginDelay;       // Animation delay before playing
-    float endDelay;         // Animation delay after playing
+    float endDelay;         // Delay after playing the animation
     uint16_t frame;         // Current frame of the animation
-    uint16_t fps;           // The FPS of the animation
-    bool loop;              // Should the animation loop?
     bool reverse;           // Should the animation play in reverse?
 };
 
@@ -41,10 +37,23 @@ struct TextureXML {
     FullTexture texture;
     PropertiesXML properties;
 
+    TextureXML();
+    void PlayAnimation(const float &deltaTime);
+    void SetState(const std::string &state);
+    void SetFPS(const uint16_t &fps);
+    void SetDelay(const float &delay, const bool &before);
     void UpdateTexture();                                                 // Updates the texture "source"
     void UpdatePosition(const Vector2 &position);                         // Updates the texture "dest"
     void UpdateOrigin(const Vector2 &vector);                             // Updates the texture "origin"
     void Draw(const Texture2D &texture) const;
+
+private:
+    std::string state;
+    float tick;
+    float delay;
+    uint16_t fps;
+    uint16_t lastFrame;
+    bool updateFrame;
 };
 
 /*          FUNCTIONS           */

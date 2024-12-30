@@ -3,12 +3,13 @@
 /*          STRUCTS           */
 
 void TextureXML::UpdateTexture() {
-    auto &anim = animation[state][frame];
+    auto &anim = animation[properties.state][properties.frame];
     texture.source = Rectangle{ anim.x, anim.y, anim.width, anim.height };
 }
 
 void TextureXML::UpdatePosition(const Vector2 &position) {
-    texture.dest = Rectangle{ position.x - animation[state][frame].frameX, position.y - animation[state][frame].frameY, texture.source.width, texture.source.height };
+    texture.dest = Rectangle{ position.x - animation[properties.state][properties.frame].frameX,
+        position.y - animation[properties.state][properties.frame].frameY, texture.source.width, texture.source.height };
 }
 
 void TextureXML::UpdateOrigin(const Vector2 &vector) {

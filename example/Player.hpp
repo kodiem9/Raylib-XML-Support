@@ -7,7 +7,7 @@ class Player {
         Player();
         ~Player();
         void Draw() const;
-        void Update();
+        void Update(const float &deltaTime);
     
     private:
         Vector2 m_playerPosition;

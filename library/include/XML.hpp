@@ -25,12 +25,21 @@ struct FrameXML {
     int16_t frameY;
 };
 
+struct PropertiesXML {
+    std::string state;      // Animation name that will play (ex. "IDLE")
+    float beginDelay;       // Animation delay before playing
+    float endDelay;         // Animation delay after playing
+    uint16_t frame;         // Current frame of the animation
+    uint16_t fps;           // The FPS of the animation
+    bool loop;              // Should the animation loop?
+    bool reverse;           // Should the animation play in reverse?
+};
+
 struct TextureXML {
     // Even though it is named TextureXML, it does not contain a texture! You have to seperately have a Texture2D!
     std::unordered_map<std::string, std::vector<FrameXML>> animation;
     FullTexture texture;
-    std::string state;
-    uint16_t frame;
+    PropertiesXML properties;
 
     void UpdateTexture();                                                 // Updates the texture "source"
     void UpdatePosition(const Vector2 &position);                         // Updates the texture "dest"

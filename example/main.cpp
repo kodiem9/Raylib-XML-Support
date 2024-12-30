@@ -7,10 +7,16 @@ int main() {
     Player player;
 
     while(!WindowShouldClose()) {
+        float deltaTime = GetFrameTime();
+
         BeginDrawing();
-        player.Update();
-        ClearBackground(LIGHTGRAY);
-        player.Draw();
+        
+            player.Update(deltaTime);
+            
+            ClearBackground(LIGHTGRAY);
+            
+            player.Draw();
+
         EndDrawing();
     }
 

@@ -9,8 +9,8 @@ Player::Player() {
     // The working directory is inside the build folder. We have to exit it and enter example to get the .png and .xml
     m_playerTexture = LoadTexture("../example/assets/dude.png");
 
-    LoadXML("../example/assets/", "dude.xml", m_playerAnimation);
-    m_playerAnimation.state = "IDLE";
+    LoadXML("../example/assets/dude.xml", m_playerAnimation);
+    m_playerAnimation.state = "dudeIDLE";
     m_playerAnimation.frame = 0;
     m_playerAnimation.UpdateTexture();
     m_playerAnimation.UpdatePosition(m_playerPosition);

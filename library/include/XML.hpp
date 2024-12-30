@@ -1,6 +1,5 @@
 #pragma once
 #include <raylib.h>
-#include <fstream>
 #include <string>
 #include <unordered_map>
 #include <vector>
@@ -41,4 +40,4 @@ struct TextureXML {
 
 /*          FUNCTIONS           */
 
-void LoadXML(const std::string &path, const std::string &name, TextureXML &texture);
+void LoadXML(const std::string &path, TextureXML &texture);

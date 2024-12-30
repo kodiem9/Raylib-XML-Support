@@ -15,6 +15,8 @@ Player::Player() {
     m_playerAnimation.UpdateTexture();
     m_playerAnimation.UpdatePosition(m_playerPosition);
     m_playerAnimation.UpdateOrigin(Vector2{m_playerAnimation.texture.dest.width / 2, m_playerAnimation.texture.dest.height / 2});
+    m_playerAnimation.texture.rotate = 0.0f;
+    m_playerAnimation.texture.color = WHITE;
 }
 
 Player::~Player() {
@@ -22,8 +24,7 @@ Player::~Player() {
 }
 
 void Player::Draw() const {
-    DrawTexturePro(m_playerTexture, m_playerAnimation.texture.source,
-        m_playerAnimation.texture.dest, m_playerAnimation.texture.origin, 0.0f, WHITE);
+    m_playerAnimation.Draw(m_playerTexture);
 }
 
 void Player::Update() {

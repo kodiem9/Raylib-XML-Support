@@ -13,6 +13,8 @@ struct FullTexture {
     Rectangle source;
     Rectangle dest;
     Vector2 origin;
+    Color color;
+    float rotate;
 };
 
 struct FrameXML {
@@ -34,6 +36,7 @@ struct TextureXML {
     void UpdateTexture();                                                 // Updates the texture "source"
     void UpdatePosition(const Vector2 &position);                         // Updates the texture "dest"
     void UpdateOrigin(const Vector2 &vector);                             // Updates the texture "origin"
+    void Draw(const Texture2D &texture) const;
 };
 
 /*          FUNCTIONS           */

@@ -38,21 +38,26 @@ struct TextureXML {
     PropertiesXML properties;
 
     TextureXML();
-    void PlayAnimation(const float &deltaTime);
+    void PlayAnimation(const float &deltaTime, const bool &updateFrameSkip = false);
+    bool IsAnimationFinished() const;
     void SetState(const std::string &state);
+    void SetFrame(const uint16_t &frame);
+    void SetDelay(const float &delay);
     void SetFPS(const uint16_t &fps);
-    void SetDelay(const float &delay, const bool &before);
+    void SetFlip(const bool &horizontal, const bool &vertical);
     void UpdateTexture();                                                 // Updates the texture "source"
     void UpdatePosition(const Vector2 &position);                         // Updates the texture "dest"
     void UpdateOrigin(const Vector2 &vector);                             // Updates the texture "origin"
     void Draw(const Texture2D &texture) const;
 
 private:
-    std::string state;
+    std::string name;
     float tick;
     float delay;
     uint16_t fps;
     uint16_t lastFrame;
+    bool flipH, flipV;
+    bool animationFinished;
     bool updateFrame;
 };
 

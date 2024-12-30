@@ -1,34 +1,45 @@
 #include <XML.hpp>
 
+#define FLIP_MACRO(value) static_cast<float>((value) ? -1 : 1)
+
 /*          STRUCTS           */
 
 TextureXML::TextureXML() 
-    : updateFrame(false), tick(0.0f) {
+    : animationFinished(false), updateFrame(false), tick(0.0f), flipH(1), flipV(1) {
     SetFPS(30);
 }
 
-void TextureXML::PlayAnimation(const float &deltaTime) {
+void TextureXML::PlayAnimation(const float &deltaTime, const bool &once) {
     tick += deltaTime;
 
     while(tick >= delay) {
         if(updateFrame) {
-            properties.frame = properties.reverse ? lastFrame + 1 : -1;
-            updateFrame = false;
+            if(!once) {
+                properties.frame = properties.reverse ? lastFrame : 0;
+                updateFrame = false;
+            }
+            tick -= delay;
+            animationFinished = true;
+            return;
         }
 
         tick -= delay;
 
         if(properties.reverse) {
+            // When animation finishes (reverse)
             if(properties.frame == 0) {
                 updateFrame = true;
                 tick -= properties.endDelay * deltaTime;
             }
             else {
                 properties.frame--;
+                animationFinished = false;
             }
         }
         else {
             properties.frame++;
+            animationFinished = false;
+            // When animation finishes (normal)
             if(properties.frame == lastFrame) {
                 updateFrame = true;
                 tick -= properties.endDelay * deltaTime;
@@ -37,24 +48,41 @@ void TextureXML::PlayAnimation(const float &deltaTime) {
     }
 }
 
+bool TextureXML::IsAnimationFinished() const {
+    return animationFinished;
+}
+
 void TextureXML::SetFPS(const uint16_t &fps) {
     this->fps = fps;
     delay = 1.0f / static_cast<float>(fps);
 }
 
-void TextureXML::SetState(const std::string &state) {
-    this->state = state;
-    lastFrame = animation[state].size() - 1;
+void TextureXML::SetFlip(const bool &horizontal, const bool &vertical) {
+    flipH = horizontal;
+    flipV = vertical;
+}
+
+void TextureXML::SetState(const std::string &name) {
+    this->name = name;
+    lastFrame = animation[name].size() - 1;
+}
+
+void TextureXML::SetFrame(const uint16_t &frame) {
+    properties.frame = frame;
+}
+
+void TextureXML::SetDelay(const float &delay) {
+    properties.endDelay = delay;
 }
 
 void TextureXML::UpdateTexture() {
-    auto &anim = animation[state][properties.frame];
-    texture.source = Rectangle{ anim.x, anim.y, anim.width, anim.height };
+    auto &anim = animation[name][properties.frame];
+    texture.source = Rectangle{ anim.x, anim.y, FLIP_MACRO(flipH) * anim.width, FLIP_MACRO(flipV) * anim.height };
 }
 
 void TextureXML::UpdatePosition(const Vector2 &position) {
-    texture.dest = Rectangle{ position.x - animation[state][properties.frame].frameX,
-        position.y - animation[state][properties.frame].frameY, texture.source.width, texture.source.height };
+    texture.dest = Rectangle{ position.x - animation[name][properties.frame].frameX,
+        position.y - animation[name][properties.frame].frameY, FLIP_MACRO(flipH) * texture.source.width, FLIP_MACRO(flipV) * texture.source.height };
 }
 
 void TextureXML::UpdateOrigin(const Vector2 &vector) {

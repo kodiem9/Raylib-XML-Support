@@ -70,7 +70,14 @@ if (USE_PCH)
     target_precompile_headers(game PRIVATE "${PCH_HEADER}")
 endif()
 
-target_link_libraries(game PRIVATE "${THIRDPARTY_PATH}/library/libpugixml.a")
+if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
+    target_link_libraries(game PRIVATE "${THIRDPARTY_PATH}/library/libpugixmlwin.a")
+elseif(CMAKE_SYSTEM_NAME STREQUAL "Darwin") # macOS
+    target_link_libraries(game PRIVATE "${THIRDPARTY_PATH}/library/libpugixmlmac.a")
+else()
+    message(FATAL_ERROR "Library does not support your operating system.")
+endif()
+
 if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
     target_link_libraries(game PRIVATE
         "${LIBRARY_PATH}/libraylib.a"

@@ -1,5 +1,5 @@
-# Raylib XML Support
-A small library that adds XML support for animations.
+# raymation
+A small library that adds XML support for animations (much more in the future hopefully!).
 
 # Example usage
 ```cpp

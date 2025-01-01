@@ -16,9 +16,9 @@ Player::Player() {
 
     LoadXML("../example/assets/dude.xml", m_playerAnimation);
     m_playerAnimation.SetState("dudeIDLE");
-    m_playerAnimation.properties.frame = 0;
-    m_playerAnimation.properties.reverse = false;
-    m_playerAnimation.properties.endDelay = 0.0f;
+    m_playerAnimation.frame = 0;
+    m_playerAnimation.reverse = false;
+    m_playerAnimation.endDelay = 0.0f;
     m_playerAnimation.SetFPS(24);
     m_playerAnimation.UpdateTexture();
     m_playerAnimation.UpdatePosition(m_playerPosition);
@@ -47,7 +47,7 @@ void Player::Update(const float &deltaTime) {
             m_playerWalking = true;
             if (m_playerWalking != m_newPlayerWalking) {
                 m_playerAnimation.SetState("dudeWALK");
-                m_playerAnimation.SetFrame(0);
+                m_playerAnimation.frame = 0;
                 m_newPlayerWalking = true;
             }
         }
@@ -55,7 +55,7 @@ void Player::Update(const float &deltaTime) {
             m_playerWalking = false;
             if (m_playerWalking != m_newPlayerWalking) {
                 m_playerAnimation.SetState("dudeIDLE");
-                m_playerAnimation.SetFrame(0);
+                m_playerAnimation.frame = 0;
                 m_newPlayerWalking = false;
             }
         }
@@ -83,7 +83,7 @@ void Player::Update(const float &deltaTime) {
             m_playerPosition.x = GetScreenWidth() / 2;
             m_playerPosition.y = GetScreenHeight() / 2;
             m_playerAnimation.SetDelay(0.0f);
-            m_playerAnimation.SetFrame(0);
+            m_playerAnimation.frame = 0;
             m_playerDead = false;
         }
     }
@@ -93,7 +93,7 @@ void Player::Collide(const Vector2 &position, const Vector2 &size) {
     if (m_playerPosition.x + m_playerSize.x / 2 > position.x && m_playerPosition.x - m_playerSize.x / 2 < position.x + size.x &&
         m_playerPosition.y + m_playerSize.y / 2 > position.y && m_playerPosition.y - m_playerSize.y / 2 < position.y + size.y && !m_playerDead) {
             m_playerAnimation.SetState("dudeDEATH");
-            m_playerAnimation.SetFrame(0);
+            m_playerAnimation.frame = 0;
             m_playerDead = true;
     }
 }

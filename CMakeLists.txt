@@ -43,12 +43,12 @@ include_directories("${LIBRARY_PATH}")
 include_directories("${PCH_PATH}")
 file(GLOB_RECURSE SOURCE_FILES "${SOURCE_PATH}/*.cpp")
 
-add_library(raryxml STATIC library/source/XML.cpp)
-target_include_directories(raryxml PUBLIC
+add_library(raymation STATIC library/source/XML.cpp)
+target_include_directories(raymation PUBLIC
     "${XML_LIBRARY_PATH}/include"
     "${THIRDPARTY_PATH}/include"
 )
-target_compile_options(raryxml PRIVATE -Werror -Wextra)
+target_compile_options(raymation PRIVATE -Werror -Wextra)
 
 add_executable(game "${SOURCE_FILES}" library/source/XML.cpp)
 

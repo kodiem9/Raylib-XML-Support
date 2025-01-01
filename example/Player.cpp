@@ -44,20 +44,20 @@ void Player::Draw() const {
 void Player::Update(const float &deltaTime) {
     if (!m_playerDead) {
         if (IsKeyDown(KEY_A) || IsKeyDown(KEY_D) || IsKeyDown(KEY_W) || IsKeyDown(KEY_S)) {
-            m_playerAnimation.SetState("dudeWALK");
             m_playerWalking = true;
-            if(m_playerWalking == m_newPlayerWalking) {
+            if (m_playerWalking != m_newPlayerWalking) {
+                m_playerAnimation.SetState("dudeWALK");
                 m_playerAnimation.SetFrame(0);
                 m_newPlayerWalking = true;
             }
         }
         else {
-            m_playerAnimation.SetState("dudeIDLE");
+            m_playerWalking = false;
             if (m_playerWalking != m_newPlayerWalking) {
+                m_playerAnimation.SetState("dudeIDLE");
                 m_playerAnimation.SetFrame(0);
                 m_newPlayerWalking = false;
             }
-            m_playerWalking = false;
         }
 
         if (IsKeyDown(KEY_A)) {

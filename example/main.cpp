@@ -8,7 +8,7 @@ int main() {
     Player player;
     Cube cube;
 
-    while(!WindowShouldClose()) {
+    while (!WindowShouldClose()) {
         float deltaTime = GetFrameTime();
 
         BeginDrawing();

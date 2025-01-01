@@ -51,7 +51,7 @@ struct TextureXML {
     void Draw(const Texture2D &texture) const;
 
 private:
-    std::string name;
+    std::string state;
     float tick;
     float delay;
     uint16_t fps;
